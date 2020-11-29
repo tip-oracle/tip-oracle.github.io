@@ -14,11 +14,11 @@
 // Names of the two caches used in this version of the service worker.
 // Change to v2, etc. when you update any of the local resources, which will
 // in turn trigger the install event again.
-const PRECACHE = "fxgCoyYLzhYHhGTfXhc3bsjzE0yQWvS2";
-const RUNTIME = 'runtime';
+const PRECACHE = "711uOdhO028Pr3KkiFQi9hQrQleRzNc3";
+// const RUNTIME  = "runtime"
 
 // A list of local resources we always want to be cached.
-const PRECACHE_URLS = ["/index.html", "/static/js/2.17225432.chunk.js", "/static/js/main.748e8294.chunk.js", "/static/js/3.c518c7c8.chunk.js", "/static/js/runtime-main.9f75709c.js", "/static/css/2.db3a489f.chunk.css", "/static/css/main.377ffcb0.chunk.css", ];
+const PRECACHE_URLS = ["/index.html", "/static/js/2.17225432.chunk.js", "/static/js/main.048b4793.chunk.js", "/static/js/3.c518c7c8.chunk.js", "/static/js/runtime-main.9f75709c.js", "/static/css/2.db3a489f.chunk.css", "/static/css/main.377ffcb0.chunk.css", ];
 
 // The install handler takes care of precaching the resources we always need.
 self.addEventListener('install', event => {
@@ -31,7 +31,7 @@ self.addEventListener('install', event => {
 
 // The activate handler takes care of cleaning up old caches.
 self.addEventListener('activate', event => {
-  const currentCaches = [PRECACHE, RUNTIME];
+  const currentCaches = [PRECACHE];
   event.waitUntil(
     caches.keys().then(cacheNames => {
       return cacheNames.filter(cacheName => !currentCaches.includes(cacheName));
@@ -55,14 +55,14 @@ self.addEventListener('fetch', event => {
           return cachedResponse;
         }
 
-        return caches.open(RUNTIME).then(cache => {
-          return fetch(event.request).then(response => {
-            // Put a copy of the response in the runtime cache.
-            return cache.put(event.request, response.clone()).then(() => {
-              return response;
-            });
-          });
-        });
+        // return caches.open(RUNTIME).then(cache => {
+        //   return fetch(event.request).then(response => {
+        //     // Put a copy of the response in the runtime cache.
+        //     return cache.put(event.request, response.clone()).then(() => {
+        //       return response;
+        //     });
+        //   });
+        // });
       })
     );
   }
