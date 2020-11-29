@@ -14,11 +14,11 @@
 // Names of the two caches used in this version of the service worker.
 // Change to v2, etc. when you update any of the local resources, which will
 // in turn trigger the install event again.
-const PRECACHE = "QXhsF2pn23bu70hgBDnTgiSjvE6x4MhV";
+const PRECACHE = "gzrcxn3D7njLNUz4sOwAdCrShjQusRcx";
 // const RUNTIME  = "runtime"
 
 // A list of local resources we always want to be cached.
-const PRECACHE_URLS = ["/index.html", "/static/js/2.07693b27.chunk.js", "/static/js/main.c7da8265.chunk.js", "/static/js/3.c518c7c8.chunk.js", "/static/js/runtime-main.9f75709c.js", "/static/css/2.db3a489f.chunk.css", "/static/css/main.377ffcb0.chunk.css", ];
+const PRECACHE_URLS = ["/index.html", "/static/js/2.07693b27.chunk.js", "/static/js/3.c518c7c8.chunk.js", "/static/js/main.e69b04d8.chunk.js", "/static/js/runtime-main.9f75709c.js", "/static/css/2.db3a489f.chunk.css", "/static/css/main.377ffcb0.chunk.css", ];
 
 // The install handler takes care of precaching the resources we always need.
 self.addEventListener('install', event => {
